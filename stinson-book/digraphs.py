@@ -23,10 +23,11 @@ def main():
             print("%s:"%(infile_name))
 
             dist = get_digraph_freqs(infile)
+            total = sum([dist[k] for k in dist])
             hist = [(d,dist.get(d,0)) for d in dist]
             hist.sort(key=lambda t:t[1],reverse=True)
             for d,n in hist:
-                print("%s: %3d"%("".join(d),n))
+                print("%s: %3d %5.3f"%("".join(d),n,n/total))
 
 
             
