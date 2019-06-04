@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import getopt
 from string import ascii_uppercase
 
 def get_text(infile,**kwargs):

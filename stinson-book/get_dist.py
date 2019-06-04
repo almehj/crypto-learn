@@ -20,8 +20,9 @@ def main():
             dist = get_dist(infile)
             hist = [(c,dist.get(c,0)) for c in ascii_uppercase]
             hist.sort(key=lambda t:t[1],reverse=True)
-            for t in hist:
-                print("%s: %3d"%t)
+            total = sum([t[1] for t in hist])
+            for c,n in hist:
+                print("%s: %7d  %5.3f"%(c,n,n/total))
 
 
 if __name__ == "__main__":
