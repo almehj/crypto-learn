@@ -23,9 +23,7 @@ def get_ngrams(text,n):
 
     return answer
 
-def get_ngram_freqs(infile,n):
-    text = get_text(infile)
-
+def get_ngram_freqs(text,n):
     answer = {}
     for i in range(len(text) - n + 1):
         gram = "".join(text[i:i+n])
@@ -46,7 +44,9 @@ def main():
         with open(infile_name,"r") as infile:
             print("# %s:"%(infile_name))
 
-            dist = get_ngram_freqs(infile,n)
+            text = get_text(infile)
+            dist = get_ngram_freqs(text,n)
+
             total = sum([dist[k] for k in dist])
             width = max([len(str(dist[k])) for k in dist])
             fmt = "%%s: %%%dd %%5.3f"%(width)
