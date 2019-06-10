@@ -1,0 +1,101 @@
+\documentclass[12pt]{amsart}
+
+%Below are some necessary packages for your course.
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{framed}
+\usepackage{fullpage}
+\usepackage{hyperref}
+    \hypersetup{colorlinks=true,citecolor=blue,urlcolor =black,linkbordercolor={1 0 0}}
+
+\newenvironment{statement}[1]{\smallskip\noindent\color[rgb]{1.00,0.00,0.50} {\bf #1.}}{}
+\allowdisplaybreaks[1]
+
+%Below are the theorem, definition, example, lemma, etc. body types.
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{postulate}[theorem]{Postulate}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+
+% You can define new commands to make your life easier.
+\newcommand{\BR}{\mathbb R}
+\newcommand{\BC}{\mathbb C}
+\newcommand{\BF}{\mathbb F}
+\newcommand{\BQ}{\mathbb Q}
+\newcommand{\BZ}{\mathbb Z}
+\newcommand{\BN}{\mathbb N}
+
+% We can even define a new command for \newcommand!
+\newcommand{\nc}{\newcommand}
+
+% If you want a new function, use operatorname to define that function (don't use \text)
+\nc{\on}{\operatorname}
+\nc{\Spec}{\on{Spec}}
+
+\title{Math 55a, Problem Set $n$} % IMPORTANT: Change the problemset number as needed.
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{-0.25in}
+\centerline{Your Name Here}
+% Just so that your CA's can come knocking on your door when you don't hand in that problemset on time...
+\centerline{Your Room and Dorm Here}
+\centerline{Cambridge, MA 02138}
+\centerline{\href{mailto:youremailhere@college.harvard.edu}{{\tt youremailhere@college.harvard.edu}}}
+\vspace*{0.15in}
+
+\begin{framed}
+  Note: This is your \LaTeX~template. Feel free to use it on your problemsets (recommended as a means of helping your CA's grade). For Windows and Macintosh users, try {\TeX}Studio as a \LaTeX~editor. If this program ever doesn't work, you can use online {\TeX}ers like write\LaTeX~, verb\TeX, and \href{http://www.overleaf.com}{Overleaf}. Any questions? Contact us at \href{mailto:vikramsundar@college.harvard.edu}{{\tt vikramsundar@college.harvard.edu}} and \href{mailto:prasad01@college.harvard.edu}{{\tt prasad01@college.harvard.edu}}. Please \TeX your problem sets.
+
+    Have fun \TeX-ing! Oh, and delete this box when you've understood this!
+\end{framed}
+
+\begin{statement}{1}
+    This is the problem statement. To help your CA's, always preface your solution with the problem statement. Also, putting the problem statement in a different color helps your CA's distinguish between problem and solution. 
+
+    We have provided the {\tt statement} environment to help you do this. Thanks for your cooperation!
+\end{statement}
+
+\begin{proof}
+    Type your solution in this body. Feel free to use definitions, lemmas, and examples as needed in your proofs; e.g.:
+    \begin{defn}
+        Define $\exp(x)$ for $x \in \BR$ to be the value of $$\sum_{i = 0}^\infty\frac{x^i}{i!}.$$
+    \end{defn}
+    As in the above definition, use separate equations rather than in-line equations as much as possible. In general, if your mathematical expression takes up more than an inch on paper, you should probably put it in its own line. This makes your problemset more readable. Use equation arrays for lists of equalities:
+    \begin{align*}
+        0 &= 0 + 0 + 0 + 0 + \dots\\
+        &= (1 - 1) + (1 - 1) + \dots \\
+        &= 1 + (-1 + 1) + (-1 + 1) + \dots \\
+        &= 1 + 0 + 0 + 0 \dots \\
+        &= 1.
+    \end{align*}
+
+    If you need to list things, use {\tt enumerate} or {\tt itemize}; e.g. Daily Schedule:
+    \begin{enumerate}
+        \item Do Math 55 problemset.
+        \item Do Math 55 problemset.
+        \item Do Math 55 problemset.
+    \end{enumerate}
+    And {\tt itemize} gives you bullet points.
+\end{proof}
+
+\begin{statement}{2}
+    Show that there are no nontrivial integer solutions to $a^n + b^n = c^n$ when $n\ge 3$ is an integer.
+\end{statement}
+\begin{proof}
+    Good luck!
+\end{proof}
+\end{document}
