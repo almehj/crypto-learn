@@ -2,6 +2,11 @@
 foo
 goo
 
+# LaTex junk files
+*.aux
+*.log
+*.dvi
+
 # Emacs backup files
 *~
 
