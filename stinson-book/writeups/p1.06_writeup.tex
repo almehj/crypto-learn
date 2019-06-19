@@ -1,0 +1,16 @@
+\begin{statement}{1.6}
+  If an encryption function $e_K$ is identical to the decryption function $d_K$, $K$ is said to be an \textit{involutory key}. Find all the involutory keys in the \textsl{Shift Cipher} over $\mathbb{Z}_{26}$
+\end{statement}
+
+There are two:
+\begin{itemize}
+\item The key \textsl{A} $(== 0)$ leaves the plaintext unchanged.
+\item The key \textsl{N} $(== 13)$ is involutory since
+  \begin{eqnarray*}
+    e_{N}(e_{N}(x)) &=& ((x + 13) + 13) \bmod 26 \\
+    &=& (x + 26) \bmod 26 \\
+    &=& x
+  \end{eqnarray*}
+\end{itemize}
+
+

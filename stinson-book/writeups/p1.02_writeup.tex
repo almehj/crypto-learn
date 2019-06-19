@@ -1,0 +1,23 @@
+\begin{statement}{1.2}
+  Suppose that $a,m>0$, and $a \not\equiv 0\pmod m$, prove that
+  \begin{equation*}
+    (-a) \bmod m = m - (a \bmod m)
+  \end{equation*}
+\end{statement}
+\begin{proof}
+
+  Let $r = a \bmod m$. This means there is a $q$ such that $a = qm + r$. So:
+  \begin{eqnarray*}
+    (-a) \bmod m &=& (-qm - r) \bmod m \\
+    &=& (-(q+1)m + m - r ) \bmod m
+  \end{eqnarray*}
+
+  Since $a \not\equiv 0 \pmod m$, it is true that $r \in [1,m-1]$, so $0 < m - r < m$. Thus:
+
+    \begin{eqnarray*}
+      (-(q+1)m + m - r ) \bmod m &=&  m - r \\
+      &=& m - (a \bmod m)
+    \end{eqnarray*}
+
+  
+\end{proof}

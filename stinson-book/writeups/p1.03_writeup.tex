@@ -1,0 +1,21 @@
+\begin{statement}{1.3}
+Prove that $a \bmod m = b \bmod m$ if and only if $a \equiv b\pmod m$
+\end{statement}
+\begin{proof}
+  Assume $a \bmod m = b \bmod m$, then there exist $q_1,q_2$ and $r$
+  such that $a = q_1m + r$ and $b = q_2m+r$. Therefore $m$ divides $b
+  - a = (q_2 - q_1)m$, meaning $a \equiv b\ (\bmod\ m)$ (Definition
+  1.2).
+
+  Now assume $a \equiv b\pmod m$. This means there is a $q$ such
+  that $b - a = qm$ (Definition 1.2 again), so $b = a + qm$. Thus $b
+  \bmod m = (a + qm) \bmod m$. Let $r = a \bmod m$, then there is a
+  $p$ such that $a = pm + r$ and $a + qm = (p+q)m + r$. Thus
+  \begin{eqnarray*}
+    (a + qm)\bmod m & = & ((p+q)m + r) \bmod m \\
+    &=& r \\
+    &=& a \bmod m
+    \end{eqnarray*}
+ meaning $a \bmod m = b \bmod m$.
+\end{proof}
+

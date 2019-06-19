@@ -1,0 +1,45 @@
+\begin{statement}{1.7}
+Determine the number of keys in the \textsl{Affine Cipher} over $\mathbb{m}_m$ for $m = 30, 100$ and $1225$
+\end{statement}
+For each $m$, the possible values for the multiplier $a$ is the set $\mathcal{A} = \{a \in \mathbb{Z}_m : \gcd (a,m) = 1\}$. Each $a$ can be combined with all $m$ possible values for the offset $b \in \mathcal{B} = \{0,1,\ldots,m-1\}$.
+
+To find the size of $\mathcal{A}$ for a given $m$, we look at the set
+$\mathcal{D}_m$ of divisors of $m$. Any member of $\mathcal{D}_m$ will
+obviously not be relatively prime with $m$. Since $1$ is in both
+$\mathcal{A}$ and $mathcal{D}_m$, we know
+\begin{equation*}
+  \| \mathcal{A} \| = m - \| \mathcal{D}_m \| + 1
+\end{equation*}
+
+To find $\| \mathcal{D}_m \|$, we look at the prime factorization of $m
+= f_1^{e_1} \times \ldots f_n^{e_n}$, where each $f_i$ is a unique
+prime factor and the corresponding $e_i$ is the exponent for that
+factor. It is easy to see that
+\begin{equation*}
+  \| \mathcal{D}_m \| = (e_1 + 1) \times \ldots (e_n + 1)
+\end{equation*}
+so
+\begin{equation*}
+  \| \mathcal{A} \| = m - (e_1 + 1) \times \ldots (e_n + 1) + 1
+\end{equation*}
+
+
+\begin{itemize}
+\item $m=30$
+
+  $m = 5 \times 3 \times 2$, so $\| \mathcal{D}_m \| = 2 \times 2 \times 2 = 8$, giving $\| \mathcal{A} \| = 30 - 8 + 1 = 23$
+
+  Therefore $\| \mathcal{K}_{30} \| = 23 \times 30 = 690$
+
+\item $m=100$
+
+  $m = 5^2 \times 2^2$, so $\| \mathcal{D}_m \| = 3 \times 3 = 9$, giving $\| \mathcal{A} \| = 100 - 9 + 1 = 92$
+
+  Therefore $\| \mathcal{K}_{100} \| = 92 \times 100 = 9200$
+  
+\item $m=1225$
+
+  $m = 7^2 \times 5^2$, so $\| \mathcal{D}_m \| = 3 \times 3 = 9$, giving $\| \mathcal{A} \| = 1225 - 9 + 1 = 1217$
+
+    Therefore $\| \mathcal{K}_{2250} \| = 1217 \times 1225 = 1490825$
+\end{itemize}
