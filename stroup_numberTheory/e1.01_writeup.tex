@@ -1,7 +1,12 @@
 \begin{statement}{1.1}
-Let $a,b,d \in \BZ$ with $d\ne 0$. Show that $a | b$ if and only if  $da | db$.
+Let $a,b,d \in \BZ$ with $d\ne 0$. Show that $a \mid b$ if and only if  $da \mid db$.
 \end{statement}
+\begin{proof}
+Assume $a \mid b$, then there is a $z \in \BZ$ such that $az = b$. If
+we multiply both sides by $d$, we get $adz = bd$, showing that $ad
+\mid bd$.
 
-Flotsam
-
-jetsam
+Assume $ad \mid bd$, then there is a $z \in \BZ$ such that $adz = bd$. Since
+$d\ne 0$, we can divide both sides by $d$ to get $az = b$, showing
+that $a \mid b$.
+\end{proof}
