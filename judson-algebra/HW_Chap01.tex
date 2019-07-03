@@ -94,34 +94,82 @@
   Find an example of two nonempty sets $A$ and $B$ for which $A \times B = B \times A$ is true.
 \end{statement}
 
-$A = B$ is the only way for nonempty sets to have symmetric carsesian
+$A = B$ is the only way for nonempty sets to have symmetric Cartesian
 products.
 \begin{proof}
-Let $A$ and $B$ be two such nonempty sets. By the definition of cartesian product:
+Let $A$ and $B$ be two such nonempty sets. By the definition of Cartesian product:
 \begin{align*}
   A \times B &= \{ (a,b) : a \in A \text{ and } b \in B \} \\
   B \times A &= \{ (b,a) : a \in A \text{ and } b \in B \}
 \end{align*}
-Since $A$ and $B$ are nonempty, the cartesian products will also be
-nonempty. Let $(a,b) \in A \times B$. Since $A \times B = B \times A$,
-$(a,b) \in B \times A$. By the definition of $B \times A$ above, that
-means that $a \in B$ and $b \in A$. The definition of $A \times B$
-thus means that for all $a \in A, a \in B$ also, thus $A \subset
-B$. Similarly, we see that for all $b \in B, b \in A$ so $B \subset
-A$. Therefore $A=B$.
+Since $A$ and $B$ are nonempty, the two Cartesian products in question
+will also be nonempty. Let $(a,b) \in A \times B$. Since $A \times B =
+B \times A$, $(a,b) \in B \times A$. By the definition of $B \times A$
+above, that means that $a \in B$ and $b \in A$. The definition of $A
+\times B$ thus means that for all $a \in A, a \in B$ also, thus $A
+\subset B$. Similarly, we see that for all $b \in B, b \in A$ so $B
+\subset A$. Therefore $A=B$.
 \end{proof}
 
 
 \begin{statement}{4}
 Prove $A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset $
 \end{statement}
+\begin{proof}
+  For the first proposition, observe that there is no $x$ such that $x \in \emptyset$, so
+  \begin{align*}
+    A \cup \emptyset &= \{ x : x \in A \text{ or } x \in \emptyset \} \\
+    &= \{ x : x \in A \} \\
+    &= A
+  \end{align*}
 
-Let $a \in A \cup \emptyset$. 
+  For the second, observe
+  \begin{align*}
+    A \cap \emptyset &= \{ x : x \in A \text{ and } x \in \emptyset \} \\
+    &= \emptyset
+  \end{align*}
+  since for any $x \in A$, it cannot be that $x \in \emptyset$, making
+  the condition impossible to fulfill.
+\end{proof}
+
+\begin{proof}
+For $A \cup \emptyset$: let $a \in A \cup \emptyset$. By definition of
+union $a \in A$ or $a \in \emptyset$. Since $\emptyset$ has no
+members, $a \notin \emptyset$, therefore $a \in A$, therefore $A \cup
+\emptyset \subset A$. Now let $a' \in A$, by definition of union, $a'
+\in A \cup \emptyset$, so $A \subset A \cup \emptyset$, proving the
+first proposition.
+
+For $A \cap \emptyset$: if $A = \emptyset$, neither set has any
+members thus the proposition is trivially true since there are no
+possible members of $A \cap \emptyset$, so assume $A$ is nonempty and
+let $a \in A$. By definition of intersection $a \in A \cap \emptyset$
+requires $a \in A$ (true) and $a \in \emptyset$, which is impossible
+since $\emptyset$ has no members, thus no member of $A$ is in $A \cap
+\emptyset$. Since $\emptyset$ has no members, here is no possible
+member for the intersection, so $A \cap \emptyset = \emptyset$.
+\end{proof}
 
 
 \begin{statement}{5}
 Prove $A \cup B = B \cup A$ and $A \cap B = B \cap A$.
 \end{statement}
+\begin{proof}
+Using the definitions of union and intersection
+\begin{align*}
+  A \cup B &= \{x : x \in A \text{ or } x \in B\} \\
+    &= \{x : x \in B \text{ or } x \in A\} \\
+      &= B \cup A
+\end{align*}
+and
+\begin{align*}
+  A \cap B &= \{x : x \in A \text{ and } x \in B\} \\
+    &= \{x : x \in B \text{ and } x \in A\} \\
+      &= B \cap A
+\end{align*}
+
+\end{proof}
+
 \begin{proof}
 Union: let $ x \in A \cup B$, then by definition of union $x \in A$ or
 $x \in B$, which means $x \in B \cup A$ also by definition of union, thus $A
@@ -134,16 +182,42 @@ A$ and $x \in B$, meeting the definition for $B \cap A$, so $A \cap B
 \subset A \cap B$, completing the proof.
 \end{proof}
 
+
 \begin{statement}{6}
 Prove $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
 \end{statement}
-To be worked out
+
+\begin{proof}
+  If $A = \emptyset$, we can use the results from Problem 4 to get $A
+  \cup (B \cap C) = B \cap C$ and $(A \cup B) \cap (A \cup C) = B \cap
+  C$, proving the proposition.
+
+  We can also use Problem 4 if $B = \emptyset$. Considering the left
+  hand side of the proposition: $(B \cap C) = \emptyset$ so $A \cup (B
+  \cap C) = A$. Considering the right hand side of the proposition,
+  $(A \cup B) \cap (A \cup C) = A \cap (A \cup C)$. For $a \in A$, $a
+  \in (A \cup C)$ so $A \subset A \cap (A \cup C)$, and for $a` in A
+  \cap (A \cup C)$, $a \in A$ by definition of intersection, so $A
+  \cap (A \cup C) \subset A$, giving $A \cap (A \cup C) = A$ and
+  proving the proposition. Similary, it can be shown that the
+  proposition is true if $C = \emptyset$.
+
+  So assume $A, B,$ and $C$ are all nonempty.
+  
+  Let $x \in A \cup (B \cap C)$, then $x \in A$ or $x \in (B \cup
+  C)$. If $x \in A$, then $x \in (A \cup B)$ and $x \in (A \cup C)$,
+  thus $x \in (A \cup B) \cap (A \cup C)$. If $x \in (B \cup C)$, then
+  $x \in B$ and $x in C$, thus $x \in (A cup B)$ and $x \in (A \cup
+  C)$, so again $x \in (A \cup B) \cap (A \cup C)$. Therefore $A \cup
+  (B \cap C) \subset (A \cup B) \cap (A \cup C)$.
+\end{proof}
 
 
 \begin{statement}{7}
 Prove $A \cap (B \cup C) = (A \cup B) \cap (A \cup C)$.
 \end{statement}
-To be worked out
+
+
 
 
 \begin{statement}{8}
