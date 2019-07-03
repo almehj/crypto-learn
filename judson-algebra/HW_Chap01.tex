@@ -1,0 +1,321 @@
+\documentclass[12pt]{amsart}
+
+%Below are some necessary packages for your course.
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{framed}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=blue,urlcolor =black,linkbordercolor={1 0 0}}
+\usepackage{enumitem}
+    
+\newenvironment{statement}[1]{\smallskip\noindent\color[rgb]{1.00,0.00,0.50} {\bf #1.}}{}
+\allowdisplaybreaks[1]
+
+%Below are the theorem, definition, example, lemma, etc. body types.
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{postulate}[theorem]{Postulate}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+
+% You can define new commands to make your life easier.
+\newcommand{\BR}{\mathbb R}
+\newcommand{\BC}{\mathbb C}
+\newcommand{\BF}{\mathbb F}
+\newcommand{\BQ}{\mathbb Q}
+\newcommand{\BZ}{\mathbb Z}
+\newcommand{\BN}{\mathbb N}
+
+% We can even define a new command for \newcommand!
+\newcommand{\nc}{\newcommand}
+
+% If you want a new function, use operatorname to define that function (don't use \text)
+\nc{\on}{\operatorname}
+\nc{\Spec}{\on{Spec}}
+
+\title{Judson Chapter $1$ Exercises}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{-0.25in}
+\centerline{Hank Alme}
+\centerline{\href{mailto:almehj@alumni.rice.edu}{{\tt almehj@alumni.rice.edu}}}
+\vspace*{0.15in}
+
+
+\begin{statement}{1}
+  Suppose that
+  \begin{align*}
+    A &= \{ x : x \in \BN\  \text{and $x$ is even} \} \\
+    B &= \{ x : x \in \BN\  \text{and $x$ is prime} \} \\
+    C &= \{ x : x \in \BN\  \text{and $x$ is a multiple of $5$} \}
+  \end{align*}
+  Describe each of the following sets.
+  
+\end{statement}
+\begin{enumerate}[label=(\alph*)]
+\item $A \cap B = \{2\}$
+\item $B \cap C = \{5\}$
+\item $A \cup B = \{ x : \text{$x$ is even or $x$ is prime} \}$
+\item $A \cap (B \cup C) = \{2\}$
+\end{enumerate}
+
+
+\begin{statement}{2}
+  If $A = \{a,b,c\}$, $B = \{1,2,3\}$,$C= {x}$, and $D = \emptyset$,
+  list all of the elements in each of the following sets.
+\end{statement}
+
+\begin{enumerate}[label=(\alph*)]
+  \item $A \times B =
+    \{(a,1),(a,2),(a,3),(b,1),(b,2),(b,3),(c,1),(c,2),(c,3)\} $
+  \item $B \times A = \{
+    (1,a),(1,b),(1,c),(2,a),(2,b),(2,c),(3,a),(3,b),(3,c) \}$
+  \item $A \times B \times C = \{(a,1,x),(a,2,x),(a,3,x),(b,1,x),(b,2,x),(b,3,x), \\
+    (c,1,x),(c,2,x),(c,3,x)\} $
+      \item $A \times D = \emptyset$
+\end{enumerate}
+
+
+\begin{statement}{3}
+  Find an example of two nonempty sets $A$ and $B$ for which $A \times B = B \times A$ is true.
+\end{statement}
+
+$A = B$ is the only way for nonempty sets to have symmetric carsesian
+products.
+\begin{proof}
+Let $A$ and $B$ be two such nonempty sets. By the definition of cartesian product:
+\begin{align*}
+  A \times B &= \{ (a,b) : a \in A \text{ and } b \in B \} \\
+  B \times A &= \{ (b,a) : a \in A \text{ and } b \in B \}
+\end{align*}
+Since $A$ and $B$ are nonempty, the cartesian products will also be
+nonempty. Let $(a,b) \in A \times B$. Since $A \times B = B \times A$,
+$(a,b) \in B \times A$. By the definition of $B \times A$ above, that
+means that $a \in B$ and $b \in A$. The definition of $A \times B$
+thus means that for all $a \in A, a \in B$ also, thus $A \subset
+B$. Similarly, we see that for all $b \in B, b \in A$ so $B \subset
+A$. Therefore $A=B$.
+\end{proof}
+
+
+\begin{statement}{4}
+Prove $A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset $
+\end{statement}
+
+Let $a \in A \cup \emptyset$. 
+
+
+\begin{statement}{5}
+Prove $A \cup B = B \cup A$ and $A \cap B = B \cap A$.
+\end{statement}
+\begin{proof}
+Union: let $ x \in A \cup B$, then by definition of union $x \in A$ or
+$x \in B$, which means $x \in B \cup A$ also by definition of union, thus $A
+\cup B \subset B \cup A$. Similary it can be shown that $B \cup A
+\subset A \cup B$, proving the proposition.
+
+Intersection is handled similarly: let $x \in A \cap B$, then $x \in
+A$ and $x \in B$, meeting the definition for $B \cap A$, so $A \cap B
+\subset B \cap A$. Considering $y \in B \cap A$ shows that $B \cap A
+\subset A \cap B$, completing the proof.
+\end{proof}
+
+\begin{statement}{6}
+Prove $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{7}
+Prove $A \cap (B \cup C) = (A \cup B) \cap (A \cup C)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{8}
+Prove $A \subset B$ if and only if $A \cap B = A$
+\end{statement}
+To be worked out
+
+
+\begin{statement}{9}
+Prove $(A \cap B)' = A' \cup B'$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{10}
+Prove $A \cup B = (A \cap B) \cup (A \setminus B) \cup (B \setminus A)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{11}
+Prove $(A \cup B) \times C = (A \times C) \cup (B \times C)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{12}
+Prove $(A \cap B) \setminus B = \emptyset$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{13}
+Prove $(A \cup B) \setminus B = A \setminus B$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{14}
+Prove $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{15}
+Prove $A \cap (B \setminus C) = (A \cap B) \setminus (A \cap C)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{16}
+Prove $(A \setminus B) \cup (B \setminus A) = (A \cup B) \ (A \cap B)$.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{17}
+Which of the following relations $f : \BQ \to \BQ$ define a mapping? In each case, supply a reason why $f$ is or is not a mapping.
+\end{statement}
+
+\begin{flalign*}
+  &\text{(a) }f(p/q) = \frac{p+1}{p -2} &
+\end{flalign*}
+
+\begin{flalign*}
+  &\text{(b) }f(p/q) = \frac{3p}{3q} &
+\end{flalign*}
+
+\begin{flalign*}
+  &\text{(c) }f(p/q) = \frac{p+q}{q^2} &
+\end{flalign*}
+
+\begin{flalign*}
+  &\text{(d) }f(p/q) = \frac{3p^2}{7q^2} - \frac{p}{q}&
+\end{flalign*}
+
+
+\begin{statement}{18}
+Determine which of the following functions are one-to-one and which
+are onto. If the function is not onto, determine its range.
+\end{statement}
+
+\begin{enumerate}[label=(\alph*)]
+\item $f : \BR \to \BR$ defined by $f(x) = e^x$
+\item $f : \BZ \to \BZ$ defined by $f(n) = n^2 + 3$
+\item $f : \BR \to \BR$ defined by $f(x) = \sin x$
+\item $f : \BZ \to \BZ$ defined by $f(x) = x^2$
+\end{enumerate}
+
+
+\begin{statement}{19}
+Let $f : A \to B$ and $g : B \to C$ be invertible mappings; that is,
+mappings such that $f^{-1}$ and $g^{-1}$ exist. Show that $(g \circ
+f)^{-1} = f^{-1} \circ g^{-1}$.
+\end{statement}
+To be worked out 
+
+
+\begin{statement}{20}
+Define the following functions:
+\end{statement}
+
+\begin{enumerate}[label=(\alph*)]
+\item $f : \BN \to \BN$ that is one-to-one but not onto.
+\item $f : \BN \to \BN$ that is onto but not one-to-one.
+\end{enumerate}
+
+\begin{statement}{21}
+Prove that the relation defined on $\BR^2$ by $(x_1,y_1) \sim (x_2,y_2)$ if $x_1^2 + y_1^2 = x_2^2 + y_2^2$ is an equivalence relation.
+\end{statement}
+To be worked out
+
+
+\begin{statement}{22}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{23}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{24}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{25}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{26}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{27}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{28}
+To be entered
+\end{statement}
+To be worked out
+
+
+\begin{statement}{29}
+Projective Real line: define a relationship on $\BR^2 \setminus (0,0)$
+by letting $(x_1,y_1) \sim (x_2,y_2)$ if there exists a nonzero real
+number $\lambda$ such that $(x_1,y_1) \sim (\lambda x_2,\lambda
+y_2)$. Prove that $\sim$ defines an equivalence relation on
+$\BR^2 \setminus (0,0)$. What are the corresponding equivalence
+classes? This equivalence relation defines the projective line,
+denoted $\mathbb{P}(\BR)$, which is very important in geometry.
+
+\end{statement}
+
+foo
+
+bar
+
+baz
+
+
+
+\end{document}
