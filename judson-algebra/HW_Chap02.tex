@@ -1,0 +1,128 @@
+\documentclass[12pt]{amsart}
+
+%Below are some necessary packages for your course.
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{framed}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=blue,urlcolor =black,linkbordercolor={1 0 0}}
+\usepackage{enumitem}
+    
+\newenvironment{statement}[1]{\smallskip\noindent\color[rgb]{1.00,0.00,0.50} {\bf #1.}}{}
+\allowdisplaybreaks[1]
+
+%Below are the theorem, definition, example, lemma, etc. body types.
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{postulate}[theorem]{Postulate}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+
+% You can define new commands to make your life easier.
+\newcommand{\BR}{\mathbb R}
+\newcommand{\BC}{\mathbb C}
+\newcommand{\BF}{\mathbb F}
+\newcommand{\BQ}{\mathbb Q}
+\newcommand{\BZ}{\mathbb Z}
+\newcommand{\BN}{\mathbb N}
+
+% We can even define a new command for \newcommand!
+\newcommand{\nc}{\newcommand}
+
+% If you want a new function, use operatorname to define that function (don't use \text)
+\nc{\on}{\operatorname}
+\nc{\Spec}{\on{Spec}}
+
+\title{Judson Chapter $2$ Exercises}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{-0.25in}
+\centerline{Hank Alme}
+\centerline{\href{mailto:almehj@alumni.rice.edu}{{\tt almehj@alumni.rice.edu}}}
+\vspace*{0.15in}
+
+
+\begin{statement}{1}
+  Prove that
+  \begin{equation*}
+    1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}
+  \end{equation*}
+  for $n \in \BN$.
+\end{statement}
+\begin{proof}
+  For $n =1$ we have $1^2 = 1$ and
+  \begin{align*}
+    \frac{n(n+1)(2n+1)}{6} &= \frac{1(1+1)(2+1)}{6} \\
+    &= \frac{1 \cdot 2 \cdot 3}{6} \\
+    &= \frac{6}{6} \\
+    &= 1
+  \end{align*}
+  Assume the proposition holds for $n$. Then
+  \begin{align*}
+    1^2 + 2^2 + \cdots + n^2 + (n+1)^2 &= \frac{n(n+1)(2n+1)}{6} + (n+1)^2 \\
+    &= \frac{n(n+1)(2n+1) + 6(n+1)^2}{6}  \\
+    &= \frac{(n+1)[n(2n+1) + 6(n+1)]}{6}  \\
+    &= \frac{(n+1)[2n^2+n + 6n+6]}{6}  \\
+    &= \frac{(n+1)[2n^2+7n +6]}{6}  \\
+    &= \frac{(n+1)(n+2)(2n +3)}{6}  \\
+    &= \frac{(n+1)(n+2)(2(n+1) + 1)}{6}  
+  \end{align*}
+  Showing that the proposition also holds for $n+1$.
+\end{proof}
+
+\begin{statement}{2}
+  Prove that
+  \begin{equation*}
+        1^3 + 2^3 + \cdots + n^3 = \frac{n^2(n+1)^2}{4}
+  \end{equation*}
+  for $n \in \BN$.
+\end{statement}
+\begin{proof}
+  For $n=1$ we have $n^3 = 1$ and 
+  \begin{align*}
+    \frac{n^2(n+1)^2}{4} &= \frac{1^2(2)^2}{4} \\
+    &= \frac{1 \cdot 4}{4} \\
+    &= 1
+  \end{align*}
+  So assume the proposition holds for $n$. For $n+1$
+  \begin{align*}
+    1^3 + 2^3 + \cdots + n^3 + (n+1)^3 &= \frac{n^2(n+1)^2}{4} + (n+1)^3 \\
+    &= \frac{n^2(n+1)^2 + 4(n+1)^3}{4} \\
+    &= \frac{(n+1)^2 [n^2 + 4(n+1)]}{4} \\
+    &= \frac{(n+1)^2 (n^2 + 4n+4)}{4} \\
+    &= \frac{(n+1)^2 (n + 2)^2}{4}
+  \end{align*}
+  Showing the proposition holds for $n+1$.
+\end{proof}
+
+\begin{statement}{3}
+  Prove that $n! > 2^n$ for $n \ge 4$.
+\end{statement}
+\begin{proof}
+  For $n=4$, $n! = 4 \cdot 3\cdot 2\cdot 1 = 24$ and $2^4 = 16 < 24$,
+  establishing the base case.
+
+  Assume the proposition holds for $n$, so 
+  \begin{align*}
+    n! &> 2^n \\
+    (n+1) n! &> (n+1) 2^n \\
+    (n+1)! &> (n+1) 2^n \\
+    &> 2^{n+1}
+  \end{align*}
+  since $n > 2$. 
+\end{proof}
+\end{document}
