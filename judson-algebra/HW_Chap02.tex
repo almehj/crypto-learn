@@ -154,5 +154,63 @@
   Showing the proposition holds for $n+1$.
 \end{proof}
 
+\begin{statement}{5}
+  Prove that $10^{n+1} + 10^n + 1$ is divisible by $3$ for $n \in \BN$.
+\end{statement}
+\begin{proof}
+  Consider $n=1$, then we have $10^2 + 10 + 1 = 111 = 3\cdot 37$, establishing the base case.
 
+  Now assume $f(n) = 10^{n+1} + 10^n + 1$ is divisible by $3$, we need
+  to show $f(n+1) = 10^{n+2} + 10^{n+1} + 1$ is divisible by
+  $3$. Since $3 \mid f(n)$, we know there is an $m \in \BZ$ such that
+  $f(n) = 3m$. Thus $f(n) = 10^{n+1} + 10^n + 1 = 3m$. Multiplying
+  both sides by $10$ gives
+  \begin{align*}
+    10^{n+2} + 10^{n+1} + 10 &= 30m \\
+    10^{n+2} + 10^{n+1} + 1 + 9 &= 30m \\
+    10^{n+2} + 10^{n+1} + 1  &= 30m - 9 \\
+    f(n+1)  &= 3(10m - 3)
+  \end{align*}
+  meaning $3 \mid f(n+1)$, proving the proposition.
+\end{proof}
+
+\begin{statement}{6}
+Prove that $f(n) = 4\cdot 10^{2n} + 9\cdot 10^{2n-1} + 5$ is divisible
+by $99$ for $n \in \BN$.
+\end{statement}
+\begin{proof}
+  Consider $n=1$, then $f(1) = 4\cdot 10^2 + 9\cdot 10^1 + 5 = 495 =
+  99\cdot 5$, establishing the base case.
+
+  Now assume $99 \mid f(n)$, so there is an $m \in \BZ$ such that $f(n) = 99m$. Similar to problem 5:
+  \begin{align*}
+    4\cdot 10^{2n} + 9\cdot 10^{2n-1} + 5 &= 99m \\
+    100(4\cdot 10^{2n} + 9\cdot 10^{2n-1} + 5) &= 99\cdot 100m \\
+    4\cdot 10^{2n + 2} + 9\cdot 10^{2n +1} + 500 &= 99\cdot 100m \\
+    4\cdot 10^{2(n + 1)} + 9\cdot 10^{2(n+1) - 1} + 5+ 495 &= 99\cdot 100m \\
+    f(n+1) + 5\cdot99 &= 99\cdot 100m \\
+    f(n+1) &= 99\cdot(100m -5)
+  \end{align*}
+  meaning $99 \mid f(n+1)$, proving the proposition.
+\end{proof}
+
+\begin{statement}{7}
+  Show that
+  \begin{equation*}
+    \sqrt[n]{a_1 a_2 \cdots a_n} \le \frac{1}{n} \sum_{k=1}^n a_k
+    \end{equation*}
+\end{statement}
+
+\begin{statement}{8}
+  Prove the Leibnitz rule for $f^{(n)}(x)$, where $f^{(n)}$ is the $n$th derivative of $f$; that is, show that
+  \begin{equation*}
+    (fg)^{(n)}(x) = \sum_{k=0}^n \binom{n}{k} f^{(k)}(x) g^{(n-k)}(x).
+    \end{equation*}
+\end{statement}
+\begin{proof}
+  if $n=0$, then the proposition reduces to $(fg)(x) = f(x)g(x)$,
+  establishing the base case. Assume the rule is true for $n$.
+
+  
+\end{proof}
 \end{document}
