@@ -132,25 +132,6 @@ Prove $A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset $
   the condition impossible to fulfill.
 \end{proof}
 
-\begin{proof}
-For $A \cup \emptyset$: let $a \in A \cup \emptyset$. By definition of
-union $a \in A$ or $a \in \emptyset$. Since $\emptyset$ has no
-members, $a \notin \emptyset$, therefore $a \in A$, therefore $A \cup
-\emptyset \subset A$. Now let $a' \in A$, by definition of union, $a'
-\in A \cup \emptyset$, so $A \subset A \cup \emptyset$, proving the
-first proposition.
-
-For $A \cap \emptyset$: if $A = \emptyset$, neither set has any
-members thus the proposition is trivially true since there are no
-possible members of $A \cap \emptyset$, so assume $A$ is nonempty and
-let $a \in A$. By definition of intersection $a \in A \cap \emptyset$
-requires $a \in A$ (true) and $a \in \emptyset$, which is impossible
-since $\emptyset$ has no members, thus no member of $A$ is in $A \cap
-\emptyset$. Since $\emptyset$ has no members, here is no possible
-member for the intersection, so $A \cap \emptyset = \emptyset$.
-\end{proof}
-
-
 \begin{statement}{5}
 Prove $A \cup B = B \cup A$ and $A \cap B = B \cap A$.
 \end{statement}
@@ -170,46 +151,18 @@ and
 
 \end{proof}
 
-\begin{proof}
-Union: let $ x \in A \cup B$, then by definition of union $x \in A$ or
-$x \in B$, which means $x \in B \cup A$ also by definition of union, thus $A
-\cup B \subset B \cup A$. Similary it can be shown that $B \cup A
-\subset A \cup B$, proving the proposition.
-
-Intersection is handled similarly: let $x \in A \cap B$, then $x \in
-A$ and $x \in B$, meeting the definition for $B \cap A$, so $A \cap B
-\subset B \cap A$. Considering $y \in B \cap A$ shows that $B \cap A
-\subset A \cap B$, completing the proof.
-\end{proof}
-
-
 \begin{statement}{6}
 Prove $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
 \end{statement}
 
 \begin{proof}
-  If $A = \emptyset$, we can use the results from Problem 4 to get $A
-  \cup (B \cap C) = B \cap C$ and $(A \cup B) \cap (A \cup C) = B \cap
-  C$, proving the proposition.
-
-  We can also use Problem 4 if $B = \emptyset$. Considering the left
-  hand side of the proposition: $(B \cap C) = \emptyset$ so $A \cup (B
-  \cap C) = A$. Considering the right hand side of the proposition,
-  $(A \cup B) \cap (A \cup C) = A \cap (A \cup C)$. For $a \in A$, $a
-  \in (A \cup C)$ so $A \subset A \cap (A \cup C)$, and for $a` in A
-  \cap (A \cup C)$, $a \in A$ by definition of intersection, so $A
-  \cap (A \cup C) \subset A$, giving $A \cap (A \cup C) = A$ and
-  proving the proposition. Similary, it can be shown that the
-  proposition is true if $C = \emptyset$.
-
-  So assume $A, B,$ and $C$ are all nonempty.
-  
-  Let $x \in A \cup (B \cap C)$, then $x \in A$ or $x \in (B \cup
-  C)$. If $x \in A$, then $x \in (A \cup B)$ and $x \in (A \cup C)$,
-  thus $x \in (A \cup B) \cap (A \cup C)$. If $x \in (B \cup C)$, then
-  $x \in B$ and $x in C$, thus $x \in (A cup B)$ and $x \in (A \cup
-  C)$, so again $x \in (A \cup B) \cap (A \cup C)$. Therefore $A \cup
-  (B \cap C) \subset (A \cup B) \cap (A \cup C)$.
+\begin{align*}
+  A \cup (B \cap C) &= A \cup \{x : x \in B \text{ and } x \in C \} \\
+  &= \{ x : x \in A \text{ or } (x \in B \text{ and } x \in C) \} \\
+  & = \{x : (x \in A \text{ or } x \in B) \text{ and } (x \in A \text{ or } x \in C) \} \\
+  & = \{x : x \in (A \cup B) \text{ and } x \in (A \cup C) \} \\
+  & = (A \cup B) \cap (A \cup C)
+\end{align*}
 \end{proof}
 
 
@@ -223,7 +176,13 @@ Prove $A \cap (B \cup C) = (A \cup B) \cap (A \cup C)$.
 \begin{statement}{8}
 Prove $A \subset B$ if and only if $A \cap B = A$
 \end{statement}
-To be worked out
+\begin{proof}
+  Assume $A \subset B$, then for any $x \in A$, also $x \in B$, so $x
+  \in A \cap B$, so $A \cap B = A$.
+
+  Now assume $A \cap B = A$. Let $x \in A$, then $x \in A \cap B$, so
+  $x \in B$, so $A \subset B$.
+\end{proof}
 
 
 \begin{statement}{9}
