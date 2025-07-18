@@ -6,6 +6,7 @@ goo
 *.aux
 *.log
 *.dvi
+*.out
 
 # Emacs backup files
 *~

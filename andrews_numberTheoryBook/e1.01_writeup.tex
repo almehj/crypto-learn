@@ -1,0 +1,23 @@
+\begin{statement}{1}
+  Prove that
+  \[
+  S(n) = 1^2 + 2^2 + 3^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}
+  \]
+\end{statement}
+\begin{proof}
+Induction: base case holds for $n=1$ as $1^2 = \frac{1\cdot(2)\cdot(3)}{6} = 1$
+
+So the formula holds for $n < k$. Adding $(k+1)^2$ to the existing formula gives
+\begin{eqnarray*}  
+  1^2 + 2^2 + \cdots + k^2 + (k+1)^2  &=& \frac{k(k+1)(kn+1)}{6} + (k+1)^2 \\
+  &=& \frac{k(k+1)(2k+1) + 6(k+1)^2}{6} \\
+  &=& \frac{(k+1)[k(2k+1) + 6(k+1)]}{6} \\
+  &=& \frac{(k+1)[2k^2+k + 6k+6)]}{6} \\
+  &=& \frac{(k+1)[2k^2+7k +6)]}{6} \\
+  &=& \frac{(k+1)[(k+2)(2k+3)]}{6} \\
+  &=& \frac{(k+1)(k+2)(2(k+1)+1)}{6} 
+\end{eqnarray*}
+
+Which is $S(k+1)$.
+
+\end{proof}
