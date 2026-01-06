@@ -4,29 +4,13 @@ import sys
 import re
 from string import ascii_uppercase as alphabet
 
-
-def gen_ngrams(text,n,offset):
-    answer = []
-    i = offset
-    while i < len(text):
-        g = text[i:i+n]
-        if len(g) == n:
-            answer.append(g)
-        i += n
-        
-    return answer
-        
 def count_ngrams(text,n):
     answer = {}
-    for offset in range(n):
-        grams = gen_ngrams(text,n,offset)
-        counts = {}
-        for gram in grams:
-            if gram not in counts:
-                counts[gram] = 0
-            counts[gram] += 1
-        answer[offset] = counts
-
+    i = 0
+    while i+n < len(text):
+        g = text[i:i+n]
+        answer[g] = answer.get(g,0)+1
+        i += 1
     return answer
 
 
@@ -50,20 +34,23 @@ def main():
 
         print("Looking for %dgrams"%n)
         ngrams = count_ngrams(text,n)
-        for offset in range(n):
-            these_grams = ngrams[offset]
-            print(" Offset %d"%offset)
-            for gram in these_grams:
-                if these_grams[gram] > 1:
-                    print("  %s:%d"%(gram,these_grams[gram]))
-                    occurs = [m.start() for m in re.finditer(gram,text)]
-                    line = []
-                    for i in range(len(occurs)):
-                        line.append(str(occurs[i]))
-                        if i+1 < len(occurs):
-                            line.append(" + %d = "%(occurs[i+1]-occurs[i]))
-                    print("".join(line))
-            
 
+        gaps = []
+        for gram in ngrams:
+            if ngrams[gram] > 1:
+                print("  %s:%d"%(gram,ngrams[gram]))
+                occurs = [m.start() for m in re.finditer(gram,text)]
+                line = []
+                for i in range(len(occurs) - 1):
+                    gap = occurs[i+1]-occurs[i]
+                    if gap not in gaps:
+                        gaps.append(gap)
+                    line.append(str(occurs[i]))
+                    line.append(" + %d = "%(gap))
+                line.append(str(occurs[-1]))
+                print("".join(line))
+
+        gaps.sort()
+        print("gaps found: %s"%(" ".join(map(str,gaps))))
 if __name__ == "__main__":
     main()
